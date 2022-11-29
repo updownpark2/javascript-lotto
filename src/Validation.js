@@ -10,6 +10,15 @@ const Validation = {
       throw new Error(`최소 1000원은 입력해야합니다!`);
     }
   },
+
+  bonus: (bonus) => {
+    if (bonus.length !== 1) {
+      throw new Error(`1개의 숫자만 입력해주세요.`);
+    }
+    if (/^[0-9]*$/g.test(bonus) === false) {
+      throw new Error(`숫자만 입력해주세요!`);
+    }
+  },
 };
 
 module.exports = Validation;
