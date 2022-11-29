@@ -3,6 +3,7 @@ const Validation = require("./Validation");
 const Computer = require("./Computer");
 const UserOutput = require("./UserOutput");
 const Lotto = require("./Lotto");
+const { bonus } = require("./Validation");
 
 class LottoController {
   getMoneyInput() {
@@ -22,6 +23,13 @@ class LottoController {
   getWinningInput() {
     UserInput.winningInput((winningInput) => {
       const lotto = new Lotto(winningInput);
+      this.getBonusInput();
+    });
+  }
+
+  getBonusInput() {
+    UserInput.bonusInput((bonus) => {
+      Validation.bonus(bonus);
     });
   }
 }
