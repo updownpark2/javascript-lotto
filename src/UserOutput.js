@@ -7,7 +7,8 @@ const UserOutput = {
 
   showLotto: (lottoArray) => {
     lottoArray.forEach((lotto) => {
-      Console.print(`${lotto}\n`);
+      let splitLotto = lotto.join(`, `).split(`,`);
+      Console.print(`[${splitLotto}]`);
     });
   },
 };
