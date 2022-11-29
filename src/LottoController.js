@@ -38,7 +38,14 @@ class LottoController {
     const lottoJudgement = new LottoJudgement();
     lottoJudgement.totalCalculation(lottoArray, winningInput, bonusInput);
     const result = lottoJudgement.getResult();
-    console.log(result);
+    this.showResult(result, lottoArray);
+  }
+
+  showResult(result, lottoArray) {
+    UserOutput.showResult(result);
+    const lottoJudgement = new LottoJudgement();
+    const benefit = lottoJudgement.getBenefit(result, lottoArray);
+    UserOutput.showBenefit(benefit);
   }
 }
 
