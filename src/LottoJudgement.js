@@ -58,6 +58,18 @@ class LottoJudgement {
     this.resultSetting();
     this.countToResult(lottoArray, bonusInput);
   }
+
+  getBenefit(result, lottoArray) {
+    let sum =
+      result.get("5등") * 5000 +
+      result.get("4등") * 50000 +
+      result.get("3등") * 1500000 +
+      result.get("2등") * 30000000 +
+      result.get("1등") * 2000000000;
+    let money = parseInt(lottoArray.length * 1000);
+
+    return `${((sum / money) * 100).toFixed(2)}`;
+  }
 }
 module.exports = LottoJudgement;
 
